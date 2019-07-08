@@ -28,10 +28,8 @@ function getImg(){
   return document.getElementById("image")
 }
 
-function getImage(){
-  fetch(imageURL)
-    .then(resp => resp.json())
-    .then(data => retrieveImg(data))
+function createLi(){
+  return document.createElement('li')
 }
 
 ////////////////////////////GETTING ORIGINAL IMAGE///////////////////////////////
@@ -60,9 +58,8 @@ function retrieveImg(pic){
 
 ///////////////////GETTING COMMENTS FROM IMAGE//////////////////////////
 function getComments(pic, ul){
-  let li = document.createElement('li')
   for(let i = 0; i < pic.comments.length; i++){
-    let li = document.createElement('li')
+    let li = createLi()
     li.innerText = pic.comments[i].content
     ul.appendChild(li)  
   }
@@ -111,14 +108,14 @@ function sendLikeToDom(nuLike){
 //////////////////////////NEW COMMENTS TO DOM//////////////////////////
 function commentSubmit(){
   let commentForm = document.getElementById('comment_form')
-  return commentForm.addEventListener('submit', (e) => addCommentToDom(e, commentForm))
+  return commentForm.addEventListener('submit', (e) => addCommentToDom(e))
   
 }
 
-function addCommentToDom(e, commentForm){
+function addCommentToDom(e){
   e.preventDefault()
-  let ul = document.getElementById('comments')
-  let li = document.createElement('li')
+  let ul = getUl()
+  let li = createLi()
   let content = e.target.children[0].value
   li.innerText = content
   ul.appendChild(li)

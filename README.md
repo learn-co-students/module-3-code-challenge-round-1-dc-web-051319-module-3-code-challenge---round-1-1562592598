@@ -88,10 +88,10 @@ Example Response:
 
 Use the data from the API response to change what's currently on the page (take a look at the already provided `index.html`). You will need to add/update:
 
-- the image url
-- the image name
-- the number of likes
-- any comments in an unordered list
+<!-- - the image url -->
+<!-- - the image name -->
+<!-- - the number of likes -->
+<!-- - any comments in an unordered list -->
 
 (If you cannot get your fetch request to work correctly, you can  use the example response above to append content to the DOM and attempt the subsequent steps)
 
